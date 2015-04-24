@@ -11,5 +11,9 @@ namespace Diner.Tests
         {
             //TODO: Do it
         }
+
+        //TODO: Test - Can order multiple coffee
+        //TODO: Test - Can order multiple potatoes
+        //TODO: Test - Can only order 1 of others
     }
 }

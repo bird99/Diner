@@ -42,11 +42,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DinerConsoleApp.cs" />
+    <Compile Include="MenuItems\IMenuItem.cs" />
+    <Compile Include="Enums\DishType.cs" />
+    <Compile Include="MenuItems\MenuItemCake.cs" />
+    <Compile Include="MenuItems\MenuItemCoffee.cs" />
+    <Compile Include="MenuItems\MenuItemEggs.cs" />
+    <Compile Include="MenuItems\MenuItemPotato.cs" />
+    <Compile Include="MenuItems\MenuItemSteak.cs" />
+    <Compile Include="Enums\TimeOfDay.cs" />
+    <Compile Include="MenuItems\MenuItemToast.cs" />
+    <Compile Include="MenuItems\MenuItemWine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
