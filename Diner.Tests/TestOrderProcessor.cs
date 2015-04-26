@@ -11,7 +11,7 @@ namespace Diner.Tests
     [TestClass]
     public class TestOrderProcessor
     {
-        //NOTE: these tests could be more robust, but I wanted to at least show Mocking and setting up Expectations 
+        //NOTE: The TestOrderProcessor could be more robust, but I wanted to at least show Mocking and setting up Expectations 
 
         private IInputHandler _inputHandler;
 
