@@ -56,6 +56,7 @@
     <Compile Include="TestInputHandler.cs" />
     <Compile Include="TestOrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestOrderProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Diner.Console\Diner.Console.csproj">

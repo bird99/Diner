@@ -5,6 +5,11 @@
     /// </summary>
     public interface IOrderProcessor
     {
-        void ProcesOrder(string userInput);
+        /// <summary>
+        /// Process an order based on user input and returns result string
+        /// </summary>
+        /// <param name="userInput"></param>
+        /// <returns></returns>
+        string ProcesOrder(string userInput);
     }
 }

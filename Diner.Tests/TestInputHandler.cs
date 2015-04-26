@@ -1,5 +1,4 @@
 ﻿using Diner.Core;
-using Diner.Core.Input;
 using Diner.Core.InputProcessing;
 using Diner.Enums;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

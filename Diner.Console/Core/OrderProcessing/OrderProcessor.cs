@@ -6,22 +6,32 @@ namespace Diner.Core.OrderProcessing
 {
     public class OrderProcessor : IOrderProcessor
     {
-        public void ProcesOrder(string userInput)
+        private readonly IInputHandler _inputHandler;
+
+        public OrderProcessor(IInputHandler inputHandler)
         {
-            //TODO- Initializing, InputHandler, should be handled by an IoC container; make this class more testable
-            var inputHandler = new InputHandler();
+            if (inputHandler == null)
+            {
+                throw new ArgumentNullException("inputHandler");
+            }
 
-            inputHandler.SetInputString(userInput);
+            _inputHandler = inputHandler;
+        }
 
-            var timeOfDayResult = inputHandler.ParseTimeOfDay();
+        public string ProcesOrder(string userInput)
+        {
+            _inputHandler.SetInputString(userInput);
+
+            var timeOfDayResult = _inputHandler.ParseTimeOfDay();
 
             if (timeOfDayResult.IsFailure)
             {
-                Console.WriteLine(timeOfDayResult.Message);
-                return;
+                return timeOfDayResult.Message;
             }
 
-            ProcessMenuItems(inputHandler, timeOfDayResult.Item);
+            var menuProcessingResultString = ProcessMenuItems(timeOfDayResult.Item);
+
+            return menuProcessingResultString;
         }
 
         #region Privates
@@ -31,35 +41,33 @@ namespace Diner.Core.OrderProcessing
         /// </summary>
         /// <param name="inputHandler"></param>
         /// <param name="timeOfDay"></param>
-        private static void ProcessMenuItems(IInputHandler inputHandler, TimeOfDay timeOfDay)
+        private string ProcessMenuItems(TimeOfDay timeOfDay)
         {
             var order = new OrderModel(timeOfDay);
 
-            while (inputHandler.HasMoreMenuItems())
+            while (_inputHandler.HasMoreMenuItems())
             {
-                var nextDishResult = inputHandler.GetNextDishType();
+                var nextDishResult = _inputHandler.GetNextDishType();
 
                 if (nextDishResult.IsFailure)
                 {
-                    OutputOrderError(order);
-                    return;
+                    return OutputOrderError(order);
                 }
 
                 var addItemResult = order.AddOrderItem(nextDishResult.Item);
 
                 if (addItemResult.IsFailure)
                 {
-                    OutputOrderError(order);
-                    return;
+                    return OutputOrderError(order);
                 }
             }
 
-            Console.WriteLine(order.GetOrderString());
+            return order.GetOrderString();
         }
 
-        private static void OutputOrderError(OrderModel order)
+        private static string OutputOrderError(OrderModel order)
         {
-            Console.WriteLine("{0},Error", order.GetOrderString());
+            return string.Format("{0},Error", order.GetOrderString());
         }
 
         #endregion

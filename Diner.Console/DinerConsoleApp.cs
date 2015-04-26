@@ -1,4 +1,5 @@
 ﻿using System;
+using Diner.Core.InputProcessing;
 using Diner.Core.OrderProcessing;
 
 namespace Diner
@@ -7,12 +8,13 @@ namespace Diner
     {
         static void Main(string[] args)
         {
-            //TODO: use IoC container
-            var orderHandler = new OrderProcessor();
+            //TODO: Use IoC in a real app..
+            var inputHandler = new InputHandler();
+            var orderHandler = new OrderProcessor(inputHandler);
 
             Console.WriteLine("Welcome to the Diner!");
-            Console.WriteLine("You can order off our morning or night menu");
-            Console.WriteLine("Input: time of day (morning or night) followed by a comma seperated list of menu items (1 = entree, 2 = side, 3 = drink, 4 = desert)");
+            Console.WriteLine("You can order off our morning or night menu\n\n");
+            Console.WriteLine("Input: time of day (morning or night) followed by a comma seperated list of menu items (1 = entree, 2 = side, 3 = drink, 4 = desert)\n\n");
 
             while (true)
             {
@@ -32,7 +34,9 @@ namespace Diner
                     break;
                 }
 
-                orderHandler.ProcesOrder(userInput);
+                var resultString = orderHandler.ProcesOrder(userInput);
+
+                Console.WriteLine(resultString);
             }
         }
     }

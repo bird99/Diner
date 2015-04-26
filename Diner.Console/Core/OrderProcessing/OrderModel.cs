@@ -55,6 +55,11 @@ namespace Diner.Core.OrderProcessing
 
             var formattedString = string.Join(",", orderString);
 
+            if (formattedString.Length == 0)
+            {
+                return "No items ordered";
+            }
+
             return formattedString;
         }
 
