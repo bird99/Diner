@@ -12,7 +12,7 @@ namespace Diner
 
             Console.WriteLine("Welcome to the Diner!");
             Console.WriteLine("You can order off our morning or night menu");
-            Console.WriteLine("Input: menu, exit, help");
+            Console.WriteLine("Input: time of day (morning or night) followed by a comma seperated list of menu items (1 = entree, 2 = side, 3 = drink, 4 = desert)");
 
             while (true)
             {

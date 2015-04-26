@@ -1,5 +1,6 @@
 ﻿using Diner.Core;
 using Diner.Core.Input;
+using Diner.Core.InputProcessing;
 using Diner.Enums;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -134,6 +135,66 @@ namespace Diner.Tests
 
         #region Test: GetNextDishType
 
+        [TestMethod]
+        public void Test_GetNextDishType_1_Is_Entree()
+        {
+            // Arrange
+            const string userInput = "night,1";
+
+            var inputHandler = GetInputHandler(userInput);
+
+            // Act
+            var entreeDishTypeResult = inputHandler.GetNextDishType();
+
+            // Assert
+            AssertDishTypeMatches(entreeDishTypeResult, DishType.Entree);
+        }             
+        
+        [TestMethod]
+        public void Test_GetNextDishType_2_Is_Side()
+        {
+            // Arrange
+            const string userInput = "night,2";
+
+            var inputHandler = GetInputHandler(userInput);
+
+            // Act
+            var sideDishTypeResult = inputHandler.GetNextDishType();
+
+            // Assert
+            AssertDishTypeMatches(sideDishTypeResult, DishType.Side);
+        }        
+        
+        [TestMethod]
+        public void Test_GetNextDishType_3_Is_Drink()
+        {
+            // Arrange
+            const string userInput = "night,3";
+
+            var inputHandler = GetInputHandler(userInput);
+
+            // Act
+            var drinkDishTypeResult = inputHandler.GetNextDishType();
+
+            // Assert
+            AssertDishTypeMatches(drinkDishTypeResult, DishType.Drink);
+        }                
+        
+        [TestMethod]
+        public void Test_GetNextDishType_4_Is_Desert()
+        {
+            // Arrange
+            const string userInput = "night,4";
+
+            var inputHandler = GetInputHandler(userInput);
+
+            // Act
+            var drinkDishTypeResult = inputHandler.GetNextDishType();
+
+            // Assert
+            AssertDishTypeMatches(drinkDishTypeResult, DishType.Desert);
+        }                
+        
         [TestMethod]
         public void Test_GetNextDishType_For_Night_Succeeds()
         {

@@ -1,4 +1,5 @@
-﻿using Diner.Enums;
+﻿using Diner.Core.OrderProcessing;
+using Diner.Enums;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Diner.Tests

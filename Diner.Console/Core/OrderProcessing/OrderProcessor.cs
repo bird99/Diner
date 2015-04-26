@@ -1,5 +1,5 @@
 ﻿using System;
-using Diner.Core.Input;
+using Diner.Core.InputProcessing;
 using Diner.Enums;
 
 namespace Diner.Core.OrderProcessing

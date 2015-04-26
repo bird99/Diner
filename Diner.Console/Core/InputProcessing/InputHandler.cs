@@ -1,6 +1,6 @@
 ﻿using Diner.Enums;
 
-namespace Diner.Core.Input
+namespace Diner.Core.InputProcessing
 {
     public class InputHandler : IInputHandler
     {
@@ -14,19 +14,11 @@ namespace Diner.Core.Input
         /// </summary>
         private int _currentMenuReadIndex;
 
-        /// <summary>
-        /// Returns true if GetNextDishType can parse more items
-        /// </summary>
-        /// <returns></returns>
         public bool HasMoreMenuItems()
         {
             return _inputStringParts != null && _currentMenuReadIndex < _inputStringParts.Length;
         }
 
-        /// <summary>
-        /// Set input string to parse
-        /// </summary>
-        /// <param name="userInput"></param>
         public void SetInputString(string userInput)
         {
             //NOTE: Not a huge fan of this method, this should be a constructor method (to set the inputString)
