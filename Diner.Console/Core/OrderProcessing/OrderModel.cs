@@ -210,6 +210,5 @@ namespace Diner.Core.OrderProcessing
         }
 
         #endregion
-
     }
 }
