@@ -50,8 +50,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="TestKitchen.cs" />
+    <Compile Include="TestInputHandler.cs" />
+    <Compile Include="TestOrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Diner.Console\Diner.Console.csproj">
+      <Project>{52D783B8-1537-429E-A476-FC4A7E197D97}</Project>
+      <Name>Diner.Console</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

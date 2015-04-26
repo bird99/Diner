@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Diner.Core.OrderProcessing;
 
 namespace Diner
 {
@@ -10,34 +7,33 @@ namespace Diner
     {
         static void Main(string[] args)
         {
-            // Get Menu
+            //TODO: use IoC container
+            var orderHandler = new OrderProcessor();
 
-            // Take Order
+            Console.WriteLine("Welcome to the Diner!");
+            Console.WriteLine("You can order off our morning or night menu");
+            Console.WriteLine("Input: menu, exit, help");
 
-            // Give to Kitchen
+            while (true)
+            {
+                Console.WriteLine("What would you like to eat?");
 
-            // Output order
+                var userInput = Console.ReadLine();
+
+                if (userInput == null)
+                {
+                    continue;
+                }
+
+                userInput = userInput.ToLower();
+
+                if (userInput == "exit")
+                {
+                    break;
+                }
+
+                orderHandler.ProcesOrder(userInput);
+            }
         }
-    }
-
-    /// <summary>
-    /// Responsible for taking orders
-    /// </summary>
-    public class Waiter
-    {
-        
-    }
-
-    public class Menu
-    {
-        
-    }
-
-    /// <summary>
-    /// Response for processing/cooking orders (return order in correct order)
-    /// </summary>
-    public class Kitchen
-    {
-        
     }
 }

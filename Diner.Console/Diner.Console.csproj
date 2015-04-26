@@ -42,6 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DinerConsoleApp.cs" />
+    <Compile Include="Enums\OperationStatus.cs" />
+    <Compile Include="Core\Input\IInputHandler.cs" />
+    <Compile Include="Core\OrderProcessing\IOrderProcessor.cs" />
+    <Compile Include="Core\Input\InputHandler.cs" />
     <Compile Include="MenuItems\IMenuItem.cs" />
     <Compile Include="Enums\DishType.cs" />
     <Compile Include="MenuItems\MenuItemCake.cs" />
@@ -52,6 +56,9 @@
     <Compile Include="Enums\TimeOfDay.cs" />
     <Compile Include="MenuItems\MenuItemToast.cs" />
     <Compile Include="MenuItems\MenuItemWine.cs" />
+    <Compile Include="Core\OperationResult.cs" />
+    <Compile Include="Core\OrderProcessing\OrderProcessor.cs" />
+    <Compile Include="Core\OrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
