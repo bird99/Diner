@@ -129,9 +129,9 @@ namespace Diner.Core.OrderProcessing
         private OperationResult<IMenuItem> AddDesert()
         {
             var result = new OperationResult<IMenuItem>();
-            var canAddSide = CanAddDesert();
+            var canAddDesert = CanAddDesert();
 
-            if (!canAddSide)
+            if (!canAddDesert)
             {
                 result.SetAsFail("Cannot add desert");
                 return result;
@@ -148,9 +148,9 @@ namespace Diner.Core.OrderProcessing
         private OperationResult<IMenuItem> AddDrink()
         {
             var result = new OperationResult<IMenuItem>();
-            var canAddSide = CanAddDrink();
+            var canAddDrink = CanAddDrink();
 
-            if (!canAddSide)
+            if (!canAddDrink)
             {
                 result.SetAsFail("Cannot add drink");
                 return result;
