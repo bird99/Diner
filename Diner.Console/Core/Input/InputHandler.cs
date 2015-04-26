@@ -7,28 +7,42 @@ namespace Diner.Core.Input
         /// <summary>
         /// Array of user input seperated by commaa
         /// </summary>
-        private readonly string[] _inputStringParts;
+        private string[] _inputStringParts;
 
         /// <summary>
-        /// Reading the menu items starts with a positon of 1 because index 0 is menu type
+        /// Current read position in the _inputStringParts array (used for GetNextDishType)
         /// </summary>
-        private int currentMenuReadIndex = 1;
+        private int _currentMenuReadIndex;
 
-        public InputHandler(string userInput)
-        {
-            _inputStringParts = userInput.Split(',');
-        }
-
+        /// <summary>
+        /// Returns true if GetNextDishType can parse more items
+        /// </summary>
+        /// <returns></returns>
         public bool HasMoreMenuItems()
         {
-            return currentMenuReadIndex < _inputStringParts.Length;
+            return _inputStringParts != null && _currentMenuReadIndex < _inputStringParts.Length;
+        }
+
+        /// <summary>
+        /// Set input string to parse
+        /// </summary>
+        /// <param name="userInput"></param>
+        public void SetInputString(string userInput)
+        {
+            //NOTE: Not a huge fan of this method, this should be a constructor method (to set the inputString)
+            // but but that would take a little more work than needed for a quick demo app.
+
+            _inputStringParts = userInput.Split(',');
+
+            //Note: Reset the read menu index to 1, because 0 is for the TimeOfDay
+            _currentMenuReadIndex = 1;
         }
 
         public OperationResult<TimeOfDay> ParseTimeOfDay()
         {
             var result = new OperationResult<TimeOfDay>();
 
-            var hasValidOrderLength = _inputStringParts.Length < 1;
+            var hasValidOrderLength = _inputStringParts == null || _inputStringParts.Length < 1;
 
             if (hasValidOrderLength)
             {
@@ -55,11 +69,11 @@ namespace Diner.Core.Input
                 return result;
             }
 
-            var currentString = _inputStringParts[currentMenuReadIndex];
+            var currentString = _inputStringParts[_currentMenuReadIndex];
 
             var parseResult = ParseDishType(currentString);
 
-            currentMenuReadIndex++;
+            _currentMenuReadIndex++;
 
             return parseResult;
         }

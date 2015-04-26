@@ -8,6 +8,8 @@ namespace Diner.Core.Input
     /// </summary>
     public interface IInputHandler
     {
+        void SetInputString(string userInput);
+
         OperationResult<TimeOfDay> ParseTimeOfDay();
 
         OperationResult<DishType> GetNextDishType();

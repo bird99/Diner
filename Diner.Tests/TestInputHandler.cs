@@ -11,6 +11,21 @@ namespace Diner.Tests
         #region Test: ParseTimeOfDay
 
         [TestMethod]
+        public void Test_ParseTimeOfDay_For_Empty_String_Fails()
+        {
+            // Arrange
+            string userInput = string.Empty;
+
+            var inputHandler = GetInputHandler(userInput);
+
+            // Act
+            var timeOfDayResult =inputHandler.ParseTimeOfDay();
+
+            // Assert
+            Assert.IsTrue(timeOfDayResult.IsFailure);
+        }
+
+        [TestMethod]
         public void Test_ParseTimeOfDay_For_Invalid_String_Fails()
         {
             // Arrange
@@ -128,16 +143,16 @@ namespace Diner.Tests
             var inputHandler = GetInputHandler(userInput);
 
             // Act
-            var expectedEntreeResult = inputHandler.GetNextDishType();
-            var expectedSideResult = inputHandler.GetNextDishType();
-            var expectedDrinkResult = inputHandler.GetNextDishType();
-            var expectedDesertResult = inputHandler.GetNextDishType();
+            var entreeDishTypeResult = inputHandler.GetNextDishType();
+            var sideDishTypeResult = inputHandler.GetNextDishType();
+            var drinkDishTypeResult = inputHandler.GetNextDishType();
+            var desertDishTypeResult = inputHandler.GetNextDishType();
 
             // Assert
-            AssertDishTypeMatches(expectedEntreeResult, DishType.Entree);
-            AssertDishTypeMatches(expectedSideResult, DishType.Side);
-            AssertDishTypeMatches(expectedDrinkResult, DishType.Drink);
-            AssertDishTypeMatches(expectedDesertResult, DishType.Desert);
+            AssertDishTypeMatches(entreeDishTypeResult, DishType.Entree);
+            AssertDishTypeMatches(sideDishTypeResult, DishType.Side);
+            AssertDishTypeMatches(drinkDishTypeResult, DishType.Drink);
+            AssertDishTypeMatches(desertDishTypeResult, DishType.Desert);
         }        
         
         [TestMethod]
@@ -149,16 +164,16 @@ namespace Diner.Tests
             var inputHandler = GetInputHandler(userInput);
 
             // Act
-            var expectedEntreeResult = inputHandler.GetNextDishType();
-            var expectedSideResult = inputHandler.GetNextDishType();
-            var expectedDrinkResult = inputHandler.GetNextDishType();
-            var expectedDesertResult = inputHandler.GetNextDishType();
+            var entreeDishTypeResult = inputHandler.GetNextDishType();
+            var sideDishTypeResult = inputHandler.GetNextDishType();
+            var drinkDishTypeResult = inputHandler.GetNextDishType();
+            var desertDishTypeResult = inputHandler.GetNextDishType();
 
             // Assert
-            AssertDishTypeMatches(expectedEntreeResult, DishType.Entree);
-            AssertDishTypeMatches(expectedSideResult, DishType.Side);
-            AssertDishTypeMatches(expectedDrinkResult, DishType.Drink);
-            AssertDishTypeMatches(expectedDesertResult, DishType.Desert);
+            AssertDishTypeMatches(entreeDishTypeResult, DishType.Entree);
+            AssertDishTypeMatches(sideDishTypeResult, DishType.Side);
+            AssertDishTypeMatches(drinkDishTypeResult, DishType.Drink);
+            AssertDishTypeMatches(desertDishTypeResult, DishType.Desert);
         }
 
         [TestMethod]
@@ -170,16 +185,16 @@ namespace Diner.Tests
             var inputHandler = GetInputHandler(userInput);
 
             // Act
-            var expectedEntreeResult = inputHandler.GetNextDishType();
-            var expectedSideResult = inputHandler.GetNextDishType();
-            var expectedDrinkResult = inputHandler.GetNextDishType();
-            var expectedDesertResult = inputHandler.GetNextDishType();
+            var entreeDishTypeResult = inputHandler.GetNextDishType();
+            var sideDishTypeResult = inputHandler.GetNextDishType();
+            var drinkDishTypeResult = inputHandler.GetNextDishType();
+            var desertDishTypeResult = inputHandler.GetNextDishType();
 
             // Assert
-            AssertDishTypeMatches(expectedEntreeResult, DishType.Entree);
-            AssertDishTypeMatches(expectedSideResult, DishType.Side);
-            AssertDishTypeMatches(expectedDrinkResult, DishType.Drink);
-            AssertDishTypeMatches(expectedDesertResult, DishType.Desert);
+            AssertDishTypeMatches(entreeDishTypeResult, DishType.Entree);
+            AssertDishTypeMatches(sideDishTypeResult, DishType.Side);
+            AssertDishTypeMatches(drinkDishTypeResult, DishType.Drink);
+            AssertDishTypeMatches(desertDishTypeResult, DishType.Desert);
         }             
         
         [TestMethod]
@@ -191,16 +206,16 @@ namespace Diner.Tests
             var inputHandler = GetInputHandler(userInput);
 
             // Act
-            var expectedEntreeResult = inputHandler.GetNextDishType();
-            var expectedSideResult = inputHandler.GetNextDishType();
-            var expectedDrinkResult = inputHandler.GetNextDishType();
-            var expectedDesertResult = inputHandler.GetNextDishType();
+            var entreeDishTypeResult = inputHandler.GetNextDishType();
+            var sideDishTypeResult = inputHandler.GetNextDishType();
+            var drinkDishTypeResult = inputHandler.GetNextDishType();
+            var desertDishTypeResult = inputHandler.GetNextDishType();
 
             // Assert
-            AssertDishTypeMatches(expectedEntreeResult, DishType.Entree);
-            AssertDishTypeMatches(expectedSideResult, DishType.Side);
-            AssertDishTypeMatches(expectedDrinkResult, DishType.Drink);
-            AssertDishTypeMatches(expectedDesertResult, DishType.Desert);
+            AssertDishTypeMatches(entreeDishTypeResult, DishType.Entree);
+            AssertDishTypeMatches(sideDishTypeResult, DishType.Side);
+            AssertDishTypeMatches(drinkDishTypeResult, DishType.Drink);
+            AssertDishTypeMatches(desertDishTypeResult, DishType.Desert);
         }
 
         [TestMethod]
@@ -212,19 +227,35 @@ namespace Diner.Tests
             var inputHandler = GetInputHandler(userInput);
 
             // Act
-            var expectedEntreeResult = inputHandler.GetNextDishType();
-            var expectedSideResult = inputHandler.GetNextDishType();
-            var expectedDrinkResult = inputHandler.GetNextDishType();
-            var expectedDesertResult = inputHandler.GetNextDishType();
+            var entreeDishTypeResult = inputHandler.GetNextDishType();
+            var sideDishTypeResult = inputHandler.GetNextDishType();
+            var drinkDishTypeResult = inputHandler.GetNextDishType();
+            var desertDishTypeResult = inputHandler.GetNextDishType();
+
             var expectedFailureResult = inputHandler.GetNextDishType();
 
             // Assert
-            AssertDishTypeMatches(expectedEntreeResult, DishType.Entree);
-            AssertDishTypeMatches(expectedSideResult, DishType.Side);
-            AssertDishTypeMatches(expectedDrinkResult, DishType.Drink);
-            AssertDishTypeMatches(expectedDesertResult, DishType.Desert);
+            AssertDishTypeMatches(entreeDishTypeResult, DishType.Entree);
+            AssertDishTypeMatches(sideDishTypeResult, DishType.Side);
+            AssertDishTypeMatches(drinkDishTypeResult, DishType.Drink);
+            AssertDishTypeMatches(desertDishTypeResult, DishType.Desert);
 
             Assert.IsTrue(expectedFailureResult.IsFailure, "Expected failure for menu item #6");
+        }        
+        
+        [TestMethod]
+        public void Test_GetNextDishType_Fails_On_Empty_String()
+        {
+            // Arrange
+            string userInput = string.Empty;
+
+            var inputHandler = GetInputHandler(userInput);
+
+            // Act
+            var nextDishTypeResult = inputHandler.GetNextDishType();
+
+            // Assert
+            Assert.IsTrue(nextDishTypeResult.IsFailure, "empty user input string, expected parse failure");
         }
 
         #endregion
@@ -257,7 +288,9 @@ namespace Diner.Tests
 
         private InputHandler GetInputHandler(string userInput)
         {
-            var inputHandler = new InputHandler(userInput);
+            var inputHandler = new InputHandler();
+
+            inputHandler.SetInputString(userInput);
 
             return inputHandler;
         }

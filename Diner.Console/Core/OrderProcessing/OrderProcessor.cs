@@ -8,8 +8,10 @@ namespace Diner.Core.OrderProcessing
     {
         public void ProcesOrder(string userInput)
         {
-            //TODO- Initializing, InputHandler, should be handled by an IoC container
-            IInputHandler inputHandler = new InputHandler(userInput);
+            //TODO- Initializing, InputHandler, should be handled by an IoC container; make this class more testable
+            var inputHandler = new InputHandler();
+
+            inputHandler.SetInputString(userInput);
 
             var timeOfDayResult = inputHandler.ParseTimeOfDay();
 
