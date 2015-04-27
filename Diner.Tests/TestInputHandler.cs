@@ -323,7 +323,7 @@ namespace Diner.Tests
         #region Privates
 
         /// <summary>
-        /// Asserts getNextDishTypeResult is successful and matched expectedDishType
+        /// Asserts getNextDishTypeResult is successful and matches expectedDishType
         /// </summary>
         /// <param name="getNextDishTypeResult"></param>
         /// <param name="expectedDishType"></param>
